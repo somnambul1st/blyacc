@@ -1,4 +1,4 @@
-module github.com/eyalch/kurzr/backend
+module github.com/somnambul1st/blyacc/backend
 
 go 1.16
 

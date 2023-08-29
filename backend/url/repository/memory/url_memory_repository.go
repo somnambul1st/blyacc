@@ -1,7 +1,7 @@
 package memory
 
 import (
-	"github.com/eyalch/kurzr/backend/core"
+	"github.com/somnamul1st/blyacc/backend/core"
 )
 
 type urlMemoryRepository struct {

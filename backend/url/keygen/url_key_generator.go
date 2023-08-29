@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/eyalch/kurzr/backend/core"
+	"github.com/somnamul1st/blyacc/backend/core"
 )
 
 const (

@@ -16,15 +16,15 @@ import (
 	"github.com/gomodule/redigo/redis"
 	_ "github.com/joho/godotenv/autoload"
 
-	"github.com/eyalch/kurzr/backend/core"
-	"github.com/eyalch/kurzr/backend/env"
-	"github.com/eyalch/kurzr/backend/ratelimit"
-	"github.com/eyalch/kurzr/backend/recaptcha"
-	urlHandler "github.com/eyalch/kurzr/backend/url/delivery/http"
-	urlKeyGenerator "github.com/eyalch/kurzr/backend/url/keygen"
-	urlMemoryRepo "github.com/eyalch/kurzr/backend/url/repository/memory"
-	urlRedisRepo "github.com/eyalch/kurzr/backend/url/repository/redis"
-	urlUsecase "github.com/eyalch/kurzr/backend/url/usecase"
+	"github.com/somnamul1st/blyacc/backend/core"
+	"github.com/somnamul1st/blyacc/backend/env"
+	"github.com/somnamul1st/blyacc/backend/ratelimit"
+	"github.com/somnamul1st/blyacc/backend/recaptcha"
+	urlHandler "github.com/somnamul1st/blyacc/backend/url/delivery/http"
+	urlKeyGenerator "github.com/somnamul1st/blyacc/backend/url/keygen"
+	urlMemoryRepo "github.com/somnamul1st/blyacc/backend/url/repository/memory"
+	urlRedisRepo "github.com/somnamul1st/blyacc/backend/url/repository/redis"
+	urlUsecase "github.com/somnamul1st/blyacc/backend/url/usecase"
 )
 
 func newRedisPool(url string) *redis.Pool {

@@ -13,12 +13,12 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/eyalch/kurzr/backend/core"
-	"github.com/eyalch/kurzr/backend/ratelimit"
-	urlHandler "github.com/eyalch/kurzr/backend/url/delivery/http"
-	urlKeyGenerator "github.com/eyalch/kurzr/backend/url/keygen"
-	urlMemoryRepo "github.com/eyalch/kurzr/backend/url/repository/memory"
-	urlUsecase "github.com/eyalch/kurzr/backend/url/usecase"
+	"github.com/somnamul1st/blyacc/backend/core"
+	"github.com/somnamul1st/blyacc/backend/ratelimit"
+	urlHandler "github.com/somnamul1st/blyacc/backend/url/delivery/http"
+	urlKeyGenerator "github.com/somnamul1st/blyacc/backend/url/keygen"
+	urlMemoryRepo "github.com/somnamul1st/blyacc/backend/url/repository/memory"
+	urlUsecase "github.com/somnamul1st/blyacc/backend/url/usecase"
 )
 
 type urlHandlerTestSuite struct {
