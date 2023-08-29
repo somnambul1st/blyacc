@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/somnamul1st/blyacc/backend/core"
+	"github.com/somnambul1st/blyacc/backend/core"
 )
 
 const verifyURL = "https://www.google.com/recaptcha/api/siteverify"

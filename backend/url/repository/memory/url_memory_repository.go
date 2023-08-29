@@ -1,7 +1,7 @@
 package memory
 
 import (
-	"github.com/somnamul1st/blyacc/backend/core"
+	"github.com/somnambul1st/blyacc/backend/core"
 )
 
 type urlMemoryRepository struct {

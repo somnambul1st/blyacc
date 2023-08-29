@@ -3,7 +3,7 @@ package redis
 import (
 	"github.com/gomodule/redigo/redis"
 
-	"github.com/somnamul1st/blyacc/backend/core"
+	"github.com/somnambul1st/blyacc/backend/core"
 )
 
 type urlRedisRepository struct {

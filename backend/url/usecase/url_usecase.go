@@ -3,7 +3,7 @@ package usecase
 import (
 	"github.com/pkg/errors"
 
-	"github.com/somnamul1st/blyacc/backend/core"
+	"github.com/somnambul1st/blyacc/backend/core"
 )
 
 type urlUsecase struct {

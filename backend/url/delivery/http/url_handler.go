@@ -12,8 +12,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sethvargo/go-limiter/httplimit"
 
-	"github.com/somnamul1st/blyacc/backend/core"
-	"github.com/somnamul1st/blyacc/backend/util"
+	"github.com/somnambul1st/blyacc/backend/core"
+	"github.com/somnambul1st/blyacc/backend/util"
 )
 
 const (

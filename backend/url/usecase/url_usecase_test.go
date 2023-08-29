@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/somnamul1st/blyacc/backend/core"
-	"github.com/somnamul1st/blyacc/backend/url/repository/memory"
-	"github.com/somnamul1st/blyacc/backend/url/usecase"
+	"github.com/somnambul1st/blyacc/backend/core"
+	"github.com/somnambul1st/blyacc/backend/url/repository/memory"
+	"github.com/somnambul1st/blyacc/backend/url/usecase"
 )
 
 type URLUsecaseTestSuite struct {
