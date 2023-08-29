@@ -7,9 +7,9 @@
   directory = "frontend/functions"
 
 [build.environment]
-  GO_IMPORT_PATH = "github.com/eyalch/kurzr"
+  GO_IMPORT_PATH = "github.com/somnambul1st/blyacc"
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/kurzr/:splat"
+  to = "/.netlify/functions/somnambul1st/:splat"
   status = 200
