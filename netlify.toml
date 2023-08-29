@@ -1,6 +1,6 @@
 [build]
   base = "frontend"
-  command = "make -C .. build"
+  command = "make -C . build"
   publish = "out"
 
 [functions]
