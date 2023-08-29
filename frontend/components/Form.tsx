@@ -49,6 +49,8 @@ const Form = ({ onSuccess }: FormProps) => {
     register,
     handleSubmit,
     watch,
+    //setError,
+    formState: { errors },
   } = useForm<IFormInput>({ mode: "all" })
 
   const url = watch("url", "")
@@ -70,7 +72,12 @@ const Form = ({ onSuccess }: FormProps) => {
       onSuccess(url, data.short_url)
     } catch (error) {
       setLoading(false)
-      console.log(error)
+      if (error.response.data.code === "ERR_DUPLICATE_KEY") {
+        setError("alias", {
+          type: "duplicate",
+          message: "Alias is not available",
+        })
+      }
     }
   }
 
@@ -89,6 +96,19 @@ const Form = ({ onSuccess }: FormProps) => {
           placeholder="Вставь свою большую жирную и неприятную ссылку"
           {...register("url")}
           className="mb-4"
+        />
+
+        <Input
+            placeholder="Alias (optional)"
+            {...register("alias", {
+              pattern: {
+                value: /^[A-Za-z0-9]+$/,
+                message: "Use only letters and numbers",
+              },
+            })}
+            error={errors.alias?.message}
+            className="mb-4"
+            hidden
         />
 
         <Button
