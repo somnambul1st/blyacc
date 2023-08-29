@@ -72,7 +72,7 @@ const Form = ({ onSuccess }: FormProps) => {
       onSuccess(url, data.short_url)
     } catch (error) {
       setLoading(false)
-      if (error?.response.data.code === "ERR_DUPLICATE_KEY") {
+      if (error?.response?.data?.code === "ERR_DUPLICATE_KEY") {
         setError("alias", {
           type: "duplicate",
           message: "Alias is not available",
