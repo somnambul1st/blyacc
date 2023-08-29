@@ -1,4 +1,4 @@
-import { faLink, faTag } from "@fortawesome/free-solid-svg-icons"
+import { faLink } from "@fortawesome/free-solid-svg-icons"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
@@ -49,7 +49,7 @@ const Form = ({ onSuccess }: FormProps) => {
     register,
     handleSubmit,
     watch,
-    setError,
+    //setError,
     formState: { errors },
   } = useForm<IFormInput>({ mode: "all" })
 
@@ -72,12 +72,12 @@ const Form = ({ onSuccess }: FormProps) => {
       onSuccess(url, data.short_url)
     } catch (error) {
       setLoading(false)
-      if (error.response.data.code === "ERR_DUPLICATE_KEY") {
+      /*if (error.response.data.code === "ERR_DUPLICATE_KEY") {
         setError("alias", {
           type: "duplicate",
           message: "Alias is not available",
         })
-      }
+      }*/
     }
   }
 
@@ -96,6 +96,7 @@ const Form = ({ onSuccess }: FormProps) => {
           placeholder="Вставь свою большую жирную и неприятную ссылку"
           {...register("url")}
           className="mb-4"
+          error={errors.alias?.message}
         />
 
         {/*<Input
