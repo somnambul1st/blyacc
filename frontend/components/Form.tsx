@@ -48,7 +48,7 @@ const Form = ({ onSuccess }: FormProps) => {
   const shortenUrl: SubmitHandler<IFormInput> = async ({ alias, url }) => {
     setLoading(true)
 
-    const token: any = await recaptchaRef.current.executeAsync()
+    const token: any = await recaptchaRef?.current?.executeAsync()
 
     try {
       await window.grecaptcha.execute(recaptchaKey, {
@@ -103,7 +103,7 @@ const Form = ({ onSuccess }: FormProps) => {
       </div>
 
       <ReCAPTCHA
-        ref={recaptchaRef}
+        ref={recaptchaRef as React.RefObject<ReCAPTCHA>}
         size="invisible"
         sitekey={recaptchaKey}
       />
