@@ -81,7 +81,8 @@ func (h *urlHandler) create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	valid, err := h.recaptchaVerifier.Verify(data.Token, "submit")
+	// Google Captcha error
+	/*valid, err := h.recaptchaVerifier.Verify(data.Token, "submit")
 	if err != nil {
 		h.logger.Println("could not verify reCAPTCHA token:", err)
 		render.Render(w, r, util.InternalServerError())
@@ -94,7 +95,7 @@ func (h *urlHandler) create(w http.ResponseWriter, r *http.Request) {
 			"invalid reCAPTCHA token",
 		))
 		return
-	}
+	}*/
 
 	var key string
 
