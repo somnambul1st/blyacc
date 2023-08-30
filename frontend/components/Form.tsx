@@ -30,9 +30,9 @@ const isValidUrl = (string: string) => {
   }
 }
 
-const Form = ({ onSuccess }: FormProps) => {
+const Form = async ({ onSuccess }: FormProps) => {
   const recaptchaRef = React.useRef<ReCAPTCHA>(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const {
     register,
@@ -43,7 +43,7 @@ const Form = ({ onSuccess }: FormProps) => {
   const url = watch("url", "")
   const urlWithSchema = url.includes("://") ? url : `https://${url}`
 
-  const shortenUrl: SubmitHandler<IFormInput> = async ({ alias, url }) => {
+  const shortenUrl: SubmitHandler<IFormInput> = async ({ url }) => {
     setLoading(true)
 
     const token: any = await recaptchaRef?.current?.executeAsync()
