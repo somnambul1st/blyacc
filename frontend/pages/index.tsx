@@ -15,8 +15,12 @@ export default function IndexPage() {
   }
 
   const onSuccess = (url: string, shortUrl: string) => {
-    setUrl(url)
-    setShortUrl(shortUrl)
+    try {
+      setUrl(url)
+      setShortUrl(shortUrl)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
