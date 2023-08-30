@@ -79,7 +79,7 @@ const Form = async ({ onSuccess }: FormProps) => {
       </div>
 
       <ReCAPTCHA
-        ref={recaptchaRef as React.RefObject<ReCAPTCHA>}
+        ref={recaptchaRef}
         size="invisible"
         sitekey={recaptchaKey}
       />
