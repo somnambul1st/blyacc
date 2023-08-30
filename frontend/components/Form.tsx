@@ -38,8 +38,6 @@ const Form = ({ onSuccess }: FormProps) => {
     register,
     handleSubmit,
     watch,
-    //setError,
-    formState: { errors },
   } = useForm<IFormInput>({ mode: "all" })
 
   const url = watch("url", "")
@@ -51,17 +49,9 @@ const Form = ({ onSuccess }: FormProps) => {
     const token: any = await recaptchaRef?.current?.executeAsync()
 
     try {
-      await window.grecaptcha.execute(recaptchaKey, {
-        action: "submit",
-      })
-    } catch (error) {
-      console.log(error)
-    }
-
-    try {
       const { data } = await http.post("/api", {
         url: urlWithSchema,
-        alias,
+        alias: "",
         token,
       })
       onSuccess(url, data.short_url)
@@ -79,19 +69,6 @@ const Form = ({ onSuccess }: FormProps) => {
           placeholder="Вставь свою большую жирную и неприятную ссылку"
           {...register("url")}
           className="mb-4"
-        />
-
-        <Input
-            placeholder="Alias (optional)"
-            {...register("alias", {
-              pattern: {
-                value: /^[A-Za-z0-9]+$/,
-                message: "Use only letters and numbers",
-              },
-            })}
-            error={errors.alias?.message}
-            className="mb-4"
-            hidden
         />
 
         <Button
