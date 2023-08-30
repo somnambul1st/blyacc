@@ -73,12 +73,6 @@ const Form = ({ onSuccess }: FormProps) => {
     } catch (error) {
       console.log(error)
       setLoading(false)
-      if (error && error.response.data.code === "ERR_DUPLICATE_KEY") {
-        setError("alias", {
-          type: "duplicate",
-          message: "Alias is not available",
-        })
-      }
     }
   }
 
