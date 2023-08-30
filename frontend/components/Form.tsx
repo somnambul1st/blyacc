@@ -16,7 +16,6 @@ type FormProps = {
 
 type IFormInput = {
   url: string
-  alias: string
 }
 
 const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY!
