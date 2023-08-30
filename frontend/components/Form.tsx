@@ -47,6 +47,8 @@ const Form = ({ onSuccess }: FormProps) => {
 
     const token: any = await recaptchaRef?.current?.executeAsync()
 
+    console.log(token)
+
     try {
       const { data } = await http.post("/api", {
         url: urlWithSchema,
