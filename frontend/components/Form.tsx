@@ -11,7 +11,7 @@ const http = axios.create({
 })
 
 type FormProps = {
-  onSuccess: (url: string, shortUrl: string) => void
+  onSuccess: (shortUrl: string) => void
 }
 
 type IFormInput = {
@@ -55,7 +55,7 @@ const Form = ({ onSuccess }: FormProps) => {
         alias: "",
         token,
       })
-      onSuccess(url, data.short_url)
+      onSuccess(data.short_url)
     } catch (error) {
       console.log(error)
       setLoading(false)
