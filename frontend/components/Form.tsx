@@ -42,7 +42,7 @@ const Form = ({ onSuccess }: FormProps) => {
   const url = watch("url", "")
   const urlWithSchema = url.includes("://") ? url : `https://${url}`
 
-  const shortenUrl: SubmitHandler<IFormInput> = async ({ url }) => {
+  const shortenUrl: SubmitHandler<IFormInput> = async () => {
     setLoading(true)
 
     const token: any = await recaptchaRef?.current?.executeAsync()
