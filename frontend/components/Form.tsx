@@ -59,9 +59,15 @@ const Form = ({ onSuccess }: FormProps) => {
   const shortenUrl: SubmitHandler<IFormInput> = async ({ alias, url }) => {
     setLoading(true)
 
-    const token = await window.grecaptcha.execute(recaptchaKey, {
-      action: "submit",
-    })
+    const token: any = "";
+
+    try {
+      await window.grecaptcha.execute(recaptchaKey, {
+        action: "submit",
+      })
+    } catch (error) {
+      console.log(error)
+    }
 
     try {
       const { data } = await http.post("/api", {
