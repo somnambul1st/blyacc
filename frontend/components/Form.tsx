@@ -31,7 +31,7 @@ const isValidUrl = (string: string) => {
 }
 
 const Form = ({ onSuccess }: FormProps) => {
-  const recaptchaRef = React.createRef();
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null);
   const [loading, setLoading] = useState(true)
 
   const {
