@@ -1,9 +1,10 @@
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 import axios from "axios"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import Button from "./Button"
 import Input from "./Input"
+import ReCAPTCHA from "react-google-recaptcha";
 
 const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL ?? "",
@@ -18,10 +19,6 @@ type IFormInput = {
   alias: string
 }
 
-// TODO: Add share option (on mobile)
-// TODO: Add QR code
-// TODO: Add unit tests
-
 const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY!
 
 const isValidUrl = (string: string) => {
@@ -33,16 +30,8 @@ const isValidUrl = (string: string) => {
   }
 }
 
-const loadScriptByURL = (url: string, callback: () => void) => {
-  const script = document.createElement("script")
-  script.type = "text/javascript"
-  script.src = url
-  if (callback) script.onload = callback
-
-  document.body.appendChild(script)
-}
-
 const Form = ({ onSuccess }: FormProps) => {
+  const recaptchaRef = React.createRef();
   const [loading, setLoading] = useState(true)
 
   const {
@@ -59,7 +48,7 @@ const Form = ({ onSuccess }: FormProps) => {
   const shortenUrl: SubmitHandler<IFormInput> = async ({ alias, url }) => {
     setLoading(true)
 
-    const token: any = "";
+    const token: any = await recaptchaRef.current.executeAsync()
 
     try {
       await window.grecaptcha.execute(recaptchaKey, {
@@ -81,13 +70,6 @@ const Form = ({ onSuccess }: FormProps) => {
       setLoading(false)
     }
   }
-
-  useEffect(() => {
-    loadScriptByURL(
-      `https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`,
-      () => setLoading(false)
-    )
-  }, [])
 
   return (
     <form onSubmit={handleSubmit(shortenUrl)} autoComplete="off">
@@ -119,6 +101,12 @@ const Form = ({ onSuccess }: FormProps) => {
           className={'submit-btn absolute w-max -bottom-8 right-8 bg-black rounded px-5 py-4 z-10 disabled:opacity-50'}
         />
       </div>
+
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        size="invisible"
+        sitekey={recaptchaKey}
+      />
     </form>
   )
 }
