@@ -4,7 +4,6 @@ body {
 }
 
 .main-head {
-    height: 305px;
     background: url("/images/bg.png");
     background-position: center center;
     background-repeat: no-repeat;
@@ -12,12 +11,27 @@ body {
 }
 
 .input input {
-    border: 3px solid rgba(255, 255, 255, 0.20);
     border-radius: 10px;
-    color: #616161;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    outline: 0 !important;
+}
+
+.submit-btn {
+    border-radius: 14px;
+    width: 60px;
+    height: 60px;
+}
+
+.copy-btn {
+    border-radius: 14px;
+    width: 60px;
+    height: 60px;
+}
+
+.submit-btn img {
+    width: 50%;
+}
+
+@media (min-width: 1024px) {
+    body {
+        overflow-y: hidden;
+    }
 }

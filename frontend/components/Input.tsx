@@ -23,17 +23,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             {...props}
             className={classNames(
-              "bg-[#1A1B1C] w-full py-4 pr-2.5 pl-9",
-              error ? "border-red-700" : "border-gray-300"
+              "bg-[#1A1B1C] text-md lg:text-lg font-medium outline-0 border-4 w-full py-4 pr-2.5 pl-9 focus:border-gray-400 transition duration-300",
+              error ? "border-red-700 text-red-500" : "border-[rgba(255,255,255,0.20)] color-[#616161]"
             )}
             ref={ref}
           />
         </div>
-        {error ? (
-          <div className="text-sm text-red-700 mt-0.5 mx-2.5">{error}</div>
+        {/*error ? (
+          <div className="text-sm text-red-700 mt-1 mx-2.5">{error}</div>
         ) : (
           ""
-        )}
+        )*/}
       </div>
     )
   }

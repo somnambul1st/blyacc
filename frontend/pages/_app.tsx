@@ -4,7 +4,7 @@ import '../components/global.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main>
+    <main className={`min-h-screen flex flex-col font-default`}>
       <Component {...pageProps} />
     </main>
   )

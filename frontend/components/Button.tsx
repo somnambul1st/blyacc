@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import { faCircleNotch, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import classNames from "classnames"
 import React from "react"
@@ -19,7 +19,7 @@ const Button = ({ icon, label, loading, ...props }: ButtonProps) => {
     <FontAwesomeIcon icon={faCircleNotch} className="animate-spin" size="lg" />
   ) : (
     <>
-      {icon ? <FontAwesomeIcon icon={icon} className="mr-2" /> : ""} {label == "Go Short" ? <FontAwesomeIcon icon={faArrowRight} /> : {label}}
+      {icon ? <FontAwesomeIcon icon={icon} className="mr-2" /> : ""} {label == "Go Short" ? <img src={"/images/StrokeIcon.svg"} width="41" height="30" alt="Stroke" /> : {label}}
     </>
   )
 
